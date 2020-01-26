@@ -1,0 +1,30 @@
+{
+  "region": { "$number": { "min": 0, "max": 1999 }},
+  "firstname": "$first",
+  "lastname": "$last",
+  "cell": { "$numberLong": { "min": 1111111111, "max": 9999999999 }},
+  "email": "$email",
+  "yob": { "$date": { "min": "1930-01-01", "max": "2016-12-31" }},
+  "gender": "$gender",
+  "address": {
+    "number": { "$number": { "min": 1, "max": 9999 }},
+    "street": { "$street": { "country": "us" }},
+    "city": "$city",
+    "state": { "$state": { "country": "us" }},
+    "zip": "$zip"
+  },
+  "policies": { "$array": { "of": { "$choose": { "from": [
+            {
+              "policyType": "auto",
+              "policyNum": { "$string": { "length": 30 }},
+              "nextRenewalDt": { "$date": { "min": "2017-01-01", "max": "2017-12-31" }},
+              "model": { "$string": { "length": 30 }},
+              "year": { "$number": { "min": 1980, "max": 2017}},
+              "value": { "$number": { "min": 500, "max": 500000}}
+            }
+          ]
+        }
+      },
+      "number": { "$number": { "min": 3, "max": 6}}
+    }}
+}
