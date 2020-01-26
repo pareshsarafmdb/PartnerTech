@@ -21,6 +21,7 @@ dependencies {
 }
 
 fatJar {
+  baseName 'dataprocdemo'
   classifier 'fat'
   zip64=true
   manifest {
